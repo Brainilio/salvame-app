@@ -4,9 +4,7 @@ import { ImageLoader, MeshLambertMaterial, TextureLoader } from "three"
 
 const Cloud = (props) => {
 	let cloudRef = useRef()
-
 	const cloud = useLoader(ImageLoader, "assets/cloud/smoke.png")
-
 	useFrame(() => {
 		cloudRef.current.rotation.z -= 0.001
 		cloudRef.current.position.x -= Math.random() * 0.01

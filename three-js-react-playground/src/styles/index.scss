@@ -1,12 +1,21 @@
 body {
-	width: 100%;
+	width: 100vw;
 	height: 100%;
+	overflow: hidden;
 	margin: 0;
 	padding: 0;
 	box-sizing: 0;
 	font-family: "Courier New", Courier, monospace;
 }
 
+.footer {
+	color: rgba(226, 226, 226, 0.959);
+	mix-blend-mode: difference;
+	font-size: 20px;
+	position: fixed;
+	bottom: 1em;
+	left: 1em;
+}
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
