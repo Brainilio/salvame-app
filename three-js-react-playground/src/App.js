@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from "react"
+import React, { Suspense, useEffect, useState } from "react"
 import Box from "./components/box"
 import "./styles/app.scss"
 import { Canvas, useFrame } from "react-three-fiber"
@@ -12,39 +12,48 @@ import ErrorBoundary from "./containers/Errorboundary"
 import Light from "./components/lights"
 
 const App = () => {
+	const [come, setCome] = useState(false)
 	let nodesClouds = null
 
-	nodesClouds = new Array(40)
-		.fill(undefined)
-		.map((val, idx) => (
-			<Cloud
-				key={idx}
-				position={[Math.random() * 3, Math.random() * 2, Math.random() * 5]}
-			/>
-		))
+	if (come) {
+		nodesClouds = new Array(40)
+			.fill(undefined)
+			.map((val, idx) => (
+				<Cloud
+					key={idx}
+					position={[
+						Math.random() * 3,
+						Math.random() * 2,
+						Math.floor(Math.random() * 10) - 5
+					]}
+				/>
+			))
+	}
+
 	useEffect(() => {})
 
 	return (
 		<ErrorBoundary>
-			<Canvas
-				camera={{ position: [0, 0, 4] }}
-				onCreated={({ gl }) => {
-					gl.shadowMap.enabled = true
-					gl.shadowMap.type = THREE.PCFSoftShadowMap
-				}}
-			>
-				<Light />
-				<fog attach='fog' args={["white", 5, 30]} />
-				<Controls />
-				<Suspense fallback={<>Loading...</>}>
-					<group>{nodesClouds}</group>
-				</Suspense>
-				<Box />
+			{come ? (
+				<Canvas
+					camera={{ position: [0, 0, 3.5] }}
+					onCreated={({ gl }) => {
+						gl.shadowMap.enabled = true
+						gl.shadowMap.type = THREE.PCFSoftShadowMap
+					}}
+				>
+					<Light />
+					<fog attach='fog' args={["white", 5, 30]} />
+					<Controls />
+					<Suspense fallback={<>Loading...</>}>
+						<group>{nodesClouds}</group>
+					</Suspense>
+					<Box />
 
-				{/* <Plane /> */}
-				{/* <Car /> */}
-			</Canvas>
-			<span>Brainilio</span>
+					{/* <Plane /> */}
+					{/* <Car /> */}
+				</Canvas>
+			) : null}
 		</ErrorBoundary>
 	)
 }
