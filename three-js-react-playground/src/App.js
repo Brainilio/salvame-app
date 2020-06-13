@@ -10,22 +10,25 @@ import Car from "./components/car"
 
 function App() {
 	return (
-		<Canvas
-			camera={{ position: [0, 0, 3] }}
-			onCreated={({ gl }) => {
-				gl.shadowMap.enabled = true
-				gl.shadowMap.type = THREE.PCFSoftShadowMap
-			}}
-		>
-			<ambientLight intensity={0} />
-			<spotLight position={[15, 20, 5]} penumbra={2} castShadow />
-			<fog attach='fog' args={["white", 5, 15]} />
+		<>
+			<Canvas
+				camera={{ position: [0, 0, 3] }}
+				onCreated={({ gl }) => {
+					gl.shadowMap.enabled = true
+					gl.shadowMap.type = THREE.PCFSoftShadowMap
+				}}
+			>
+				<ambientLight intensity={0} />
+				<spotLight position={[15, 20, 5]} penumbra={2} castShadow />
+				<fog attach='fog' args={["white", 5, 30]} />
 
-			<Controls />
-			<Box />
-			<Plane />
-			<Car />
-		</Canvas>
+				<Controls />
+				<Box />
+				{/* <Plane /> */}
+				{/* <Car /> */}
+			</Canvas>
+			<span>Brainilio</span>
+		</>
 	)
 }
 
