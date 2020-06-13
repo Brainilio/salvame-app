@@ -15,12 +15,13 @@ const Controls = () => {
 	return (
 		<orbitControls
 			enableZoom={false}
-			maxPolarAngle={Math.PI / 3}
-			minPolarAngle={Math.PI / 3}
 			ref={orbitRef}
 			args={[camera, gl.domElement]}
 		/>
 	)
 }
+
+/* maxPolarAngle={0}
+			minPolarAngle={0} */
 
 export default Controls

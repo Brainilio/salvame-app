@@ -1,7 +1,7 @@
-import React, { Suspense } from "react"
+import React, { Suspense, useEffect } from "react"
 import Box from "./components/box"
 import "./styles/app.scss"
-import { Canvas } from "react-three-fiber"
+import { Canvas, useFrame } from "react-three-fiber"
 import Controls from "./components/controls"
 import Plane from "./components/plane"
 import { Globals } from "react-spring/three"
@@ -11,11 +11,23 @@ import Cloud from "./components/cloud"
 import ErrorBoundary from "./containers/Errorboundary"
 import Light from "./components/lights"
 
-function App() {
+const App = () => {
+	let nodesClouds = null
+
+	nodesClouds = new Array(40)
+		.fill(undefined)
+		.map((val, idx) => (
+			<Cloud
+				key={idx}
+				position={[Math.random() * 3, Math.random() * 2, Math.random() * 5]}
+			/>
+		))
+	useEffect(() => {})
+
 	return (
 		<ErrorBoundary>
 			<Canvas
-				camera={{ position: [0, 0, 5] }}
+				camera={{ position: [0, 0, 4] }}
 				onCreated={({ gl }) => {
 					gl.shadowMap.enabled = true
 					gl.shadowMap.type = THREE.PCFSoftShadowMap
@@ -24,10 +36,11 @@ function App() {
 				<Light />
 				<fog attach='fog' args={["white", 5, 30]} />
 				<Controls />
-				<Box />
 				<Suspense fallback={<>Loading...</>}>
-					<Cloud />
+					<group>{nodesClouds}</group>
 				</Suspense>
+				<Box />
+
 				{/* <Plane /> */}
 				{/* <Car /> */}
 			</Canvas>
