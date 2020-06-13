@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Suspense } from "react"
 import Box from "./components/box"
 import "./styles/app.scss"
 import { Canvas } from "react-three-fiber"
@@ -7,28 +7,32 @@ import Plane from "./components/plane"
 import { Globals } from "react-spring/three"
 import * as THREE from "three"
 import Car from "./components/car"
+import Cloud from "./components/cloud"
+import ErrorBoundary from "./containers/Errorboundary"
+import Light from "./components/lights"
 
 function App() {
 	return (
-		<>
+		<ErrorBoundary>
 			<Canvas
-				camera={{ position: [0, 0, 3] }}
+				camera={{ position: [0, 0, 5] }}
 				onCreated={({ gl }) => {
 					gl.shadowMap.enabled = true
 					gl.shadowMap.type = THREE.PCFSoftShadowMap
 				}}
 			>
-				<ambientLight intensity={0} />
-				<spotLight position={[15, 20, 5]} penumbra={2} castShadow />
+				<Light />
 				<fog attach='fog' args={["white", 5, 30]} />
-
 				<Controls />
 				<Box />
+				<Suspense fallback={<>Loading...</>}>
+					<Cloud />
+				</Suspense>
 				{/* <Plane /> */}
 				{/* <Car /> */}
 			</Canvas>
 			<span>Brainilio</span>
-		</>
+		</ErrorBoundary>
 	)
 }
 
