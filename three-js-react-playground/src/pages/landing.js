@@ -1,4 +1,5 @@
 import React from "react"
+import { NavLink } from "react-router-dom"
 
 const Landing = () => {
 	return (
@@ -8,7 +9,9 @@ const Landing = () => {
 				<a href='https://blacklivesmatter.com/'>Get in action!</a>
 			</div>
 			<span className='landing-header'>Title Project</span>
-			<button>Start Experience</button>
+			<NavLink to='/story'>
+				<button>Start Experience</button>
+			</NavLink>
 		</div>
 	)
 }
