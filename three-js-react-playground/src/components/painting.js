@@ -1,25 +1,41 @@
-import React, { Suspense, useEffect, useState, useRef } from "react"
+import React, { Suspense } from "react"
 import Cloud from "./cloud"
 import Light from "./lights"
-import { Canvas, useFrame } from "react-three-fiber"
+import { Canvas, useThree, useFrame } from "react-three-fiber"
 import Controls from "./controls"
 import Plane from "./plane"
 import * as THREE from "three"
-import Car from "./car"
+// import Car from "./car"
 import Box from "./box"
+import Artist from "./artists"
 
 const Painting = () => {
-	// let canvasRef = useRef()
 	let nodesClouds = null
-	nodesClouds = new Array(5)
+
+	// useFrame(() => {
+	// 	console.log("hi")
+	// })
+	// const pressed = (e) => {
+	// 	switch (e.keyCode) {
+	// 		case 83: // up
+	// 			camera.position.z += 5
+	// 			// camera.position.z += 50
+	// 			break
+	// 		case 87: // down
+	// 			camera.current.camera.position.z -= 2
+	// 			break
+	// 	}
+	// }
+
+	nodesClouds = new Array(40)
 		.fill(undefined)
 		.map((val, idx) => (
 			<Cloud
 				key={idx}
 				position={[
-					Math.random() * 3,
+					Math.random() * 30,
 					Math.random() * 2,
-					Math.floor(Math.random() * 10) - 5,
+					Math.floor(Math.random() * 45) - 5,
 				]}
 			/>
 		))
@@ -27,7 +43,7 @@ const Painting = () => {
 	return (
 		<>
 			<Canvas
-				// ref={canvasRef}
+				perspectivecamera='true'
 				camera={{ position: [0, 0, 40] }}
 				onCreated={({ gl }) => {
 					gl.shadowMap.enabled = true
@@ -41,8 +57,11 @@ const Painting = () => {
 					<group>{nodesClouds}</group>
 				</Suspense>
 				<Box />
-
 				<Plane />
+				<Artist rot={[0, Math.PI / 2, 0]} pos={[10, 0, 30]} />
+				<Artist rot={[0, Math.PI / 2, 0]} pos={[10, 0, 15]} />
+				<Artist rot={[0, Math.PI / 2, 0]} pos={[-10, 0, 15]} />
+				<Artist rot={[0, Math.PI / 2, 0]} pos={[-10, 0, 30]} />
 				{/* <Car /> */}
 			</Canvas>
 		</>

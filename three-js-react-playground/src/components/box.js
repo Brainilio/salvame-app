@@ -4,7 +4,7 @@ import { HTML } from "drei"
 
 const Box = () => {
 	const [hovered, setHovered] = useState(false)
-	const [active, setActive] = useState(false)
+	const [active] = useState(false)
 	const props = useSpring({
 		scale: active ? [1.5, 2, 1.5] : [1, 1, 1],
 		color: hovered ? "hotpink" : "gray",
@@ -17,11 +17,11 @@ const Box = () => {
 			onPointerOver={() => setHovered(true)}
 			onPointerOut={() => setHovered(false)}
 			// onClick={() => setActive(!active)}
-			scale={props.scale}
+
 			castShadow
 		>
 			<boxBufferGeometry attach='geometry' args={[5, 4, 1]} />
-			<a.meshPhysicalMaterial attach='material' color={props.color} />
+			<a.meshPhysicalMaterial attach='material' />
 			<HTML scaleFactor={10}>
 				<div className='content line1'>
 					Current % <br />

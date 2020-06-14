@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import { NavLink } from "react-router-dom"
-import { CSSTransition } from "react-transition-group"
 import Fade from "react-reveal/Fade"
 import TextExperience from "./content/textExperience"
 
@@ -12,7 +11,7 @@ const Experience = () => {
 		"But they're not alone.",
 	]
 	const [text, setText] = useState(0)
-	const [path, setPath] = useState(false)
+	// const [path, setPath] = useState(false)
 
 	const nextText = () => {
 		if (text !== j) {

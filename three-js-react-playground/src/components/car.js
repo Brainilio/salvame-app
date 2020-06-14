@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react"
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader"
-import { TextureLoader } from "three/examples/jsm/loaders/BasisTextureLoader"
 
 const Car = () => {
 	const [model, setModel] = useState()
