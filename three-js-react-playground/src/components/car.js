@@ -7,7 +7,7 @@ const Car = () => {
 
 	useEffect(() => {
 		new GLTFLoader().load("assets/jet/scene.gltf", setModel)
-	})
+	}, [])
 
 	return model ? <primitive object={model.scene} /> : null
 }

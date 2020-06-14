@@ -9,9 +9,9 @@ import Car from "./car"
 import Box from "./box"
 
 const Painting = () => {
-	let canvasRef = useRef()
+	// let canvasRef = useRef()
 	let nodesClouds = null
-	nodesClouds = new Array(40)
+	nodesClouds = new Array(5)
 		.fill(undefined)
 		.map((val, idx) => (
 			<Cloud
@@ -19,7 +19,7 @@ const Painting = () => {
 				position={[
 					Math.random() * 3,
 					Math.random() * 2,
-					Math.floor(Math.random() * 10) - 5
+					Math.floor(Math.random() * 10) - 5,
 				]}
 			/>
 		))
@@ -27,8 +27,8 @@ const Painting = () => {
 	return (
 		<>
 			<Canvas
-				ref={canvasRef}
-				camera={{ position: [0, 0, 3.5] }}
+				// ref={canvasRef}
+				camera={{ position: [0, 0, 40] }}
 				onCreated={({ gl }) => {
 					gl.shadowMap.enabled = true
 					gl.shadowMap.type = THREE.PCFSoftShadowMap
@@ -42,7 +42,7 @@ const Painting = () => {
 				</Suspense>
 				<Box />
 
-				{/* <Plane /> */}
+				<Plane />
 				{/* <Car /> */}
 			</Canvas>
 		</>

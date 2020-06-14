@@ -7,7 +7,7 @@ const Box = () => {
 	const [active, setActive] = useState(false)
 	const props = useSpring({
 		scale: active ? [1.5, 2, 1.5] : [1, 1, 1],
-		color: hovered ? "hotpink" : "gray"
+		color: hovered ? "hotpink" : "gray",
 	})
 
 	//executed in every file
@@ -16,19 +16,39 @@ const Box = () => {
 		<a.mesh
 			onPointerOver={() => setHovered(true)}
 			onPointerOut={() => setHovered(false)}
-			onClick={() => setActive(!active)}
+			// onClick={() => setActive(!active)}
 			scale={props.scale}
 			castShadow
 		>
-			<boxBufferGeometry attach='geometry' args={[1, 1, 1]} />
+			<boxBufferGeometry attach='geometry' args={[5, 4, 1]} />
 			<a.meshPhysicalMaterial attach='material' color={props.color} />
 			<HTML scaleFactor={10}>
-				<div className='content'>
-					Suspense <br />
-					100br
+				<div className='content line1'>
+					Current % <br />
+					80 AQI
+				</div>
+				<div className='content line2'>
+					Did you know..? <br />
+					<span>
+						Pollution kills over 1 million seabirds and 100 million mammals
+						annually.
+					</span>
+				</div>
+				<div className='content line3'>
+					Boyle Heights Artists <br />
+					<span>
+						Pollution kills over 1 million seabirds and 100 million mammals
+						annually.
+					</span>
+				</div>
+				<div className='content line4'>
+					News <br />
+					<span>
+						{/* LAPD Officer Caught On Camera Beating Man In Boyle Heights Pleads
+						Not Guilty To Assault Charges */}
+					</span>
 				</div>
 			</HTML>
-			>
 		</a.mesh>
 	)
 }

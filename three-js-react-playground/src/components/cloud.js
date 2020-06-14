@@ -16,7 +16,7 @@ const Cloud = (props) => {
 
 	return (
 		<mesh ref={cloudRef} position={props.position.map((pos) => pos)}>
-			<planeBufferGeometry attach='geometry' args={[5, 4, 8]} />
+			<planeBufferGeometry attach='geometry' args={[18, 20, 15]} />
 			<meshLambertMaterial attach='material' transparent>
 				<texture
 					attach='map'

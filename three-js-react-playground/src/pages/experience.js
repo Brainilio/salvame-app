@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import { NavLink } from "react-router-dom"
 import { CSSTransition } from "react-transition-group"
 import Fade from "react-reveal/Fade"
+import TextExperience from "./content/textExperience"
 
 const Experience = () => {
 	let wordToShow = [
@@ -13,31 +14,37 @@ const Experience = () => {
 	const [text, setText] = useState(0)
 	const [path, setPath] = useState(false)
 
-	let currentText = (
-		<Fade left>
-			<span>{wordToShow[text]}</span>
-		</Fade>
-	)
-	let j = wordToShow.length - 1
-
 	const nextText = () => {
 		if (text !== j) {
 			setText((prevState) => prevState + 1)
 		} else {
-			setPath(true)
+			setText(0)
 		}
 	}
+
+	let j = wordToShow.length - 1
+
+	let words = []
+	wordToShow.map((word, index) =>
+		words.push(<TextExperience key={index} name={word} click={nextText} />)
+	)
+
+	console.log(words[text])
+
 	return (
-		<div className='experience-wrapper'>
-			{currentText}
-			{path ? (
+		<Fade bottom duration={5000}>
+			<div className='experience-wrapper'>
+				{words[text]}
 				<NavLink to='/painting' exact>
 					<button onClick={nextText}>Next</button>
 				</NavLink>
-			) : (
-				<button onClick={nextText}>Next</button>
-			)}
-		</div>
+
+				{/* {path ? (
+			) : ( */}
+				{/* <button onClick={nextText}>Next</button> */}
+				{/* )} */}
+			</div>
+		</Fade>
 	)
 }
 
