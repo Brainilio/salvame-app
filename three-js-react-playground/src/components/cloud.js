@@ -12,6 +12,7 @@ const Cloud = (props) => {
 			cloudRef.current.position.x = Math.random() * 10 - 8
 			cloudRef.current.position.z = Math.random() * 30 - 3
 		}
+		cloudRef.current.updateProjectionMatrix()
 	})
 
 	return (
