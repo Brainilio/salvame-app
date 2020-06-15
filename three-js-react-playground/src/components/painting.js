@@ -4,6 +4,7 @@ import Light from "./lights"
 import { Canvas, useThree, useFrame } from "react-three-fiber"
 import Controls from "./controls"
 import Plane from "./plane"
+import Obj from "./car"
 import * as THREE from "three"
 // import Car from "./car"
 import Box from "./box"
@@ -12,22 +13,7 @@ import Artist from "./artists"
 const Painting = () => {
 	let nodesClouds = null
 
-	// useFrame(() => {
-	// 	console.log("hi")
-	// })
-	// const pressed = (e) => {
-	// 	switch (e.keyCode) {
-	// 		case 83: // up
-	// 			camera.position.z += 5
-	// 			// camera.position.z += 50
-	// 			break
-	// 		case 87: // down
-	// 			camera.current.camera.position.z -= 2
-	// 			break
-	// 	}
-	// }
-
-	nodesClouds = new Array(40)
+	nodesClouds = new Array(5)
 		.fill(undefined)
 		.map((val, idx) => (
 			<Cloud
@@ -51,11 +37,14 @@ const Painting = () => {
 				}}
 			>
 				<Light />
-				<fog attach='fog' args={["white", 5, 30]} />
+				{/* <fog attach='fog' args={["white", 5, 30]} /> */}
 				<Controls />
 				<Suspense fallback={<>Loading...</>}>
 					<group>{nodesClouds}</group>
 				</Suspense>
+				<Obj name='water_tower' pos={[-15, -300, 20]} />
+				<Obj name='chimney' pos={[-15, -8, 20]} />
+				<Obj name='barrels_and_pallet' pos={[-9, -3.5, 20]} />
 				<Box />
 				<Plane />
 				<Artist rot={[0, Math.PI / 2, 0]} pos={[10, 0, 30]} />

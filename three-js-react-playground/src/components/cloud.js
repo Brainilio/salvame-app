@@ -7,12 +7,11 @@ const Cloud = (props) => {
 	const cloud = useLoader(ImageLoader, "assets/cloud/smoke.png")
 	useFrame(() => {
 		cloudRef.current.rotation.z -= 0.001
-		cloudRef.current.position.x -= Math.random() * 0.1
+		cloudRef.current.position.x -= Math.random() * 0.05
 		if (cloudRef.current.position.x < -20) {
 			cloudRef.current.position.x = Math.random() * 10 - 8
 			cloudRef.current.position.z = Math.random() * 30 - 3
 		}
-		cloudRef.current.updateProjectionMatrix()
 	})
 
 	return (
