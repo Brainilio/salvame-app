@@ -2,6 +2,7 @@ import React, { useRef } from "react"
 import { extend, useThree, useFrame } from "react-three-fiber"
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls"
 import { FirstPersonControls } from "three/examples/jsm/controls/FirstPersonControls"
+import { MOUSE } from "three"
 extend({ OrbitControls })
 extend({ FirstPersonControls })
 
@@ -9,10 +10,8 @@ const Controls = (props) => {
 	const orbitRef = useRef()
 	const { camera, gl } = useThree()
 
-	console.log(props.keys)
 	// Function called in every frame
 	useFrame(() => {
-		console.log(camera.position)
 		if (
 			camera.position.x < -10 ||
 			camera.position.x > 10 ||
@@ -34,22 +33,13 @@ const Controls = (props) => {
 		}
 		if (props.keys[65]) {
 			// A
-			camera.position.x += Math.sin(camera.rotation.y + Math.PI / 2) * 0.1
-			camera.position.z += -Math.cos(camera.rotation.y + Math.PI / 2) * 0.1
+			camera.position.x -= Math.sin(camera.rotation.y + Math.PI / 2) * 0.1
+			camera.position.z += 0
 		}
 		if (props.keys[68]) {
 			//D
-			camera.position.x += Math.sin(camera.rotation.y - Math.PI / 2) * 0.1
-			camera.position.z += -Math.cos(camera.rotation.y - Math.PI / 2) * 0.1
-		}
-		// Keyboard turn inputs
-		if (props.keys[37]) {
-			// left arrow key
-			camera.rotation.y += 0.01
-		}
-		if (props.keys[39]) {
-			// right arrow key
-			camera.rotation.y -= 0.01
+			camera.position.x += Math.sin(camera.rotation.y + Math.PI / 2) * 0.1
+			camera.position.z += 0
 		}
 
 		orbitRef.current.update()
@@ -59,7 +49,7 @@ const Controls = (props) => {
 	return (
 		<orbitControls
 			enableZoom={true}
-			enableRotate={false}
+			enableRotate={true}
 			ref={orbitRef}
 			args={[camera, gl.domElement]}
 			enablePan={false}

@@ -1,4 +1,4 @@
-import React, { useState, Suspense } from "react"
+import React, { useState, Suspense, useMemo } from "react"
 import Cloud from "./cloud"
 import Light from "./lights"
 import { Canvas } from "react-three-fiber"
@@ -8,6 +8,8 @@ import Obj from "./car"
 import * as THREE from "three"
 import Box from "./box"
 import Artist from "./artists"
+import Skybox from "./skybox"
+import Video from "./videoplane"
 
 const Painting = () => {
 	let nodesClouds = null
@@ -16,27 +18,25 @@ const Painting = () => {
 
 	// Function called in every frame
 
-	nodesClouds = new Array(5)
+	nodesClouds = new Array(65)
 		.fill(undefined)
 		.map((val, idx) => (
 			<Cloud
 				key={idx}
 				position={[
-					Math.random() * 30,
-					Math.random() * 2,
-					Math.floor(Math.random() * 45) - 5,
+					Math.random() * 45,
+					Math.random() * 5 + 2,
+					Math.floor(Math.random() * 80) - 5,
 				]}
 			/>
 		))
 
 	const keyUp = (event) => {
-		console.log("up")
 		keyboard[event.keyCode] = false
 		setKeys(keyboard)
 	}
 
 	const keyDown = (event) => {
-		console.log("down")
 		keyboard[event.keyCode] = true
 		setKeys(keyboard)
 	}
@@ -54,11 +54,10 @@ const Painting = () => {
 				}}
 			>
 				<Light />
-				{/* <fog attach='fog' args={["white", 5, 30]} /> */}
 				<Controls keys={keys} />
-				<Suspense fallback={<>Loading...</>}>
+				{/* <Suspense fallback={<>Loading...</>}>
 					<group>{nodesClouds}</group>
-				</Suspense>
+				</Suspense> */}
 				<Obj name='water_tower' pos={[-15, -300, 20]} />
 				<Obj name='chimney' pos={[-15, -8, 20]} />
 				<Obj name='barrels_and_pallet' pos={[-9, -3.5, 20]} />
@@ -68,8 +67,9 @@ const Painting = () => {
 				<Artist rot={[0, Math.PI / 2, 0]} pos={[10, 0, 15]} />
 				<Artist rot={[0, Math.PI / 2, 0]} pos={[-10, 0, 15]} />
 				<Artist rot={[0, Math.PI / 2, 0]} pos={[-10, 0, 30]} />
-				{/* <Car /> */}
+				{/* <Skybox /> */}
 			</Canvas>
+			{/* <Video /> */}
 		</>
 	)
 }

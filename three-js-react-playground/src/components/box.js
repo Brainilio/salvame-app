@@ -22,7 +22,7 @@ const Box = () => {
 		>
 			<boxBufferGeometry attach='geometry' args={[5, 4, 1]} />
 			<a.meshPhysicalMaterial attach='material' />
-			<HTML scaleFactor={10}>
+			<HTML scaleFactor={12}>
 				<div className='content line1'>
 					Current % <br />
 					80 AQI
