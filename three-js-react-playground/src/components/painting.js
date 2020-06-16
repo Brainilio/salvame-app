@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, Suspense } from "react"
 import Cloud from "./cloud"
 import Light from "./lights"
 import { Canvas } from "react-three-fiber"
@@ -56,9 +56,9 @@ const Painting = () => {
 				<Light />
 				{/* <fog attach='fog' args={["white", 5, 30]} /> */}
 				<Controls keys={keys} />
-				{/* <Suspense fallback={<>Loading...</>}>
+				<Suspense fallback={<>Loading...</>}>
 					<group>{nodesClouds}</group>
-				</Suspense> */}
+				</Suspense>
 				<Obj name='water_tower' pos={[-15, -300, 20]} />
 				<Obj name='chimney' pos={[-15, -8, 20]} />
 				<Obj name='barrels_and_pallet' pos={[-9, -3.5, 20]} />
