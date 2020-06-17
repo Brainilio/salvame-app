@@ -9,7 +9,7 @@ import * as THREE from "three"
 import Box from "./box"
 import Artist from "./artists"
 import Skybox from "./skybox"
-import Video from "./videoplane"
+import TexturePlane from "./videoplane"
 
 const Painting = () => {
 	let nodesClouds = null
@@ -44,10 +44,10 @@ const Painting = () => {
 	return (
 		<>
 			<Canvas
+				perspectivecamera='true'
 				onKeyDown={keyDown}
 				onKeyUp={keyUp}
-				perspectivecamera='true'
-				camera={{ position: [0, 0, 40] }}
+				camera={{ position: [0, 0, 70] }}
 				onCreated={({ gl }) => {
 					gl.shadowMap.enabled = true
 					gl.shadowMap.type = THREE.PCFSoftShadowMap
@@ -68,8 +68,8 @@ const Painting = () => {
 				<Artist rot={[0, Math.PI / 2, 0]} pos={[-10, 0, 15]} />
 				<Artist rot={[0, Math.PI / 2, 0]} pos={[-10, 0, 30]} />
 				{/* <Skybox /> */}
+				<TexturePlane />
 			</Canvas>
-			{/* <Video /> */}
 		</>
 	)
 }

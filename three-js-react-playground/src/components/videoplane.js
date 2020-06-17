@@ -1,21 +1,24 @@
 import React, { useRef, useMemo } from "react"
 import { useLoader, useFrame } from "react-three-fiber"
-import { VideoTexture, TextureLoader } from "three"
+import { VideoTexture, TextureLoader, MeshLambertMaterial } from "three"
+import Robert from "../assets/robert_varga.jpg"
+import Test from "../assets/test.mp4"
 
-const Video = () => {
+const TexturePlane = () => {
 	const video = useRef()
-	const texture = useMemo(() => TextureLoader().load("assets/video/test.mp4"), [
-		"assets/video/test.mp4",
-	])
+	const image = new TextureLoader().load(Robert)
+	const vid = new VideoTexture(Test)
+
+	console.log(vid)
 
 	return (
-		<mesh>
-			<planeBufferGeometry name='geometry' args={[1, 1]} />
-			<meshLambertMaterial name='material' transparent>
-				<primitive map='map' object={texture} />
-			</meshLambertMaterial>
-		</mesh>
+		<>
+			<mesh rotation={[0, 0, 0]} position={[0, 5, 20]} receiveShadow>
+				<planeBufferGeometry attach='geometry' args={[40, 20, 20]} />
+				<meshLambertMaterial attach='material' map={image} />
+			</mesh>
+		</>
 	)
 }
 
-export default Video
+export default TexturePlane
