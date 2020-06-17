@@ -13,8 +13,6 @@ import TexturePlane from "./videoplane"
 
 const Painting = () => {
 	let nodesClouds = null
-	let keyboard = {}
-	const [keys, setKeys] = useState({})
 
 	// Function called in every frame
 
@@ -31,24 +29,9 @@ const Painting = () => {
 			/>
 		))
 
-	const keyUp = (event) => {
-		console.log("HASJDKASDKLASJLKDA")
-		console.log(event.keyCode)
-		keyboard[event.keyCode] = false
-		setKeys(keyboard)
-	}
-
-	const keyDown = (event) => {
-		console.log(event.keyCode)
-		keyboard[event.keyCode] = true
-		setKeys(keyboard)
-	}
-
 	return (
 		<>
 			<Canvas
-				// onKeyDown={keyDown}
-				// onKeyUp={keyUp}
 				perspectivecamera='true'
 				camera={{ position: [5, 15, 50] }}
 				onCreated={({ gl }) => {
@@ -57,7 +40,7 @@ const Painting = () => {
 				}}
 			>
 				<Light />
-				<Controls keys={keys} />
+				<Controls />
 				{/* <Suspense fallback={<>Loading...</>}>
 					<group>{nodesClouds}</group>
 				</Suspense> */}
