@@ -13,8 +13,12 @@ const TexturePlane = () => {
 
 	return (
 		<>
-			<mesh rotation={[0, 0, 0]} position={[0, 5, 20]} receiveShadow>
-				<planeBufferGeometry attach='geometry' args={[40, 20, 20]} />
+			<mesh
+				rotation={[0, -Math.PI / 2, 0]}
+				position={[10, 0, 30]}
+				receiveShadow
+			>
+				<planeBufferGeometry attach='geometry' args={[40, 20]} />
 				<meshLambertMaterial attach='material' map={image} />
 			</mesh>
 		</>

@@ -32,11 +32,14 @@ const Painting = () => {
 		))
 
 	const keyUp = (event) => {
+		console.log("HASJDKASDKLASJLKDA")
+		console.log(event.keyCode)
 		keyboard[event.keyCode] = false
 		setKeys(keyboard)
 	}
 
 	const keyDown = (event) => {
+		console.log(event.keyCode)
 		keyboard[event.keyCode] = true
 		setKeys(keyboard)
 	}
@@ -44,10 +47,10 @@ const Painting = () => {
 	return (
 		<>
 			<Canvas
+				// onKeyDown={keyDown}
+				// onKeyUp={keyUp}
 				perspectivecamera='true'
-				onKeyDown={keyDown}
-				onKeyUp={keyUp}
-				camera={{ position: [0, 0, 70] }}
+				camera={{ position: [5, 15, 50] }}
 				onCreated={({ gl }) => {
 					gl.shadowMap.enabled = true
 					gl.shadowMap.type = THREE.PCFSoftShadowMap
@@ -58,9 +61,9 @@ const Painting = () => {
 				{/* <Suspense fallback={<>Loading...</>}>
 					<group>{nodesClouds}</group>
 				</Suspense> */}
-				<Obj name='water_tower' pos={[-15, -300, 20]} />
-				<Obj name='chimney' pos={[-15, -8, 20]} />
-				<Obj name='barrels_and_pallet' pos={[-9, -3.5, 20]} />
+				{/* <Obj name='water_tower' pos={[-15, -300, 20]} /> */}
+				{/* <Obj name='chimney' pos={[-15, -8, 20]} /> */}
+				{/* <Obj name='barrels_and_pallet' pos={[-9, -3.5, 20]} /> */}
 				<Box />
 				<Plane />
 				<Artist rot={[0, Math.PI / 2, 0]} pos={[10, 0, 30]} />
