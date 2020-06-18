@@ -21,14 +21,14 @@ const Controls = (props) => {
 	document.body.addEventListener("keyup", keyUp)
 
 	useFrame(() => {
-		// if (
-		// 	camera.position.x < -10 ||
-		// 	camera.position.x > 10 ||
-		// 	camera.position.z < 5 ||
-		// 	camera.position.z > 82
-		// ) {
-		// 	camera.position.set(0, 0, 40)
-		// }
+		if (
+			camera.position.x < -10 ||
+			camera.position.x > 10 ||
+			camera.position.z < 5 ||
+			camera.position.z > 82
+		) {
+			camera.position.set(0, 0, 40)
+		}
 
 		document.body.addEventListener("keydown", (e) => {
 			if (e.keyCode === 80) {

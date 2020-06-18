@@ -14,6 +14,8 @@ import TexturePlane from "./videoplane"
 const Painting = () => {
 	let nodesClouds = null
 
+	// Function called in every frame
+
 	nodesClouds = new Array(65)
 		.fill(undefined)
 		.map((val, idx) => (
