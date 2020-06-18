@@ -2,6 +2,7 @@ import React, { useState } from "react"
 import Pahokee from "../assets/mihokee.jpg"
 import Penobscot from "../assets/penobscot.jpg"
 import ShowText from "./content/textSituation"
+import { NavLink } from "react-router-dom"
 import Flint from "../assets/flint.jpg"
 
 const Situations = (props) => {
@@ -42,6 +43,9 @@ const Situations = (props) => {
 	return (
 		<div onClick={nextText} className='situation-wrapper'>
 			{sections[index]}
+			<NavLink to='/experience' exact>
+				<button className='next-button'>Next</button>
+			</NavLink>
 		</div>
 	)
 }

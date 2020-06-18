@@ -20,9 +20,10 @@ const Box = () => {
 
 			castShadow
 		>
-			<boxBufferGeometry attach='geometry' args={[5, 4, 1]} />
-			<a.meshPhysicalMaterial attach='material' />
-			<HTML scaleFactor={12}>
+			<boxBufferGeometry attach='geometry' args={[30, 50, 1]} />
+			<a.meshPhysicalMaterial color={0x000000} attach='material' />
+			<HTML scaleFactor={20}>
+				<span className='content title'>BOYLE HEIGHTS</span>
 				<div className='content line1'>
 					Current % <br />
 					80 AQI

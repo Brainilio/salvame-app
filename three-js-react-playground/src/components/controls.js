@@ -21,6 +21,12 @@ const Controls = (props) => {
 	document.body.addEventListener("keyup", keyUp)
 
 	useFrame(() => {
+		// console.log(camera.position.z) 275
+
+		// if (camera.position.z > 70) {
+		// 	orbitRef.current.moveForward(0.15)
+		// }
+
 		// if (
 		// 	camera.position.x < -10 ||
 		// 	camera.position.x > 10 ||
@@ -46,21 +52,21 @@ const Controls = (props) => {
 			if (keyboard[87]) {
 				// w
 				orbitRef.current.moveForward(0.25)
-				console.log("moving forwards")
+				// console.log("moving forwards")
 			}
 			if (keyboard[83]) {
 				// S
-				console.log("moving backwards")
+				// console.log("moving backwards")
 				orbitRef.current.moveForward(-0.25)
 			}
 			if (keyboard[65]) {
 				// A
-				console.log("moving left")
+				// console.log("moving left")
 				orbitRef.current.moveRight(-0.25)
 			}
 			if (keyboard[68]) {
 				//D
-				console.log("moving right")
+				// console.log("moving right")
 				orbitRef.current.moveRight(0.25)
 			}
 		}

@@ -10,11 +10,9 @@ const Experience = () => {
 		"You won many battles",
 		"But the war is not over yet.",
 		"Boyle Heights.",
-		"Don't let",
-		"Your voice",
+		"Don't let your voice",
 		"Your community",
-		"Be",
-		"Clouded",
+		"Be Clouded",
 		"Boyle Heights screams",
 		"SALVAME",
 	]

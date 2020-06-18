@@ -4,6 +4,7 @@
 @import "./artist_wrapper.scss";
 @import "./marvin.scss";
 @import "./situations.scss";
+@import "./resources.scss";
 
 canvas {
 	width: 100%;
@@ -12,9 +13,30 @@ canvas {
 	padding: 0;
 }
 
+.action-button {
+	position: absolute;
+	top: 80%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 200px;
+	height: 100px;
+	font-size: 25px;
+	border: none;
+	background: rgba(209, 208, 208, 0.795);
+	font-family: "Courier New", Courier, monospace;
+}
+.content.title {
+	text-align: center;
+	left: -180%;
+	position: absolute;
+	top: -250px;
+	font-size: 100px;
+	color: rgba(255, 255, 255, 0.671);
+}
+
 .content.line1 {
 	padding-top: 10px;
-	transform: translate3d(570%, -8em, -30em);
+	transform: translate3d(600%, -25em, -30em);
 	text-align: right;
 	color: rgba(255, 255, 255, 0.671);
 	text-decoration: underline;
@@ -33,10 +55,10 @@ canvas {
 
 .content.line4 {
 	position: absolute;
-	top: 180px;
+	top: 100px;
 	right: 0;
 	padding-top: 10px;
-	transform: translate3d(1025%, 0, 0);
+	transform: translate3d(1200%, 0, 0);
 	text-align: right;
 	color: rgba(255, 255, 255, 0.671);
 	text-decoration: underline;
@@ -61,7 +83,7 @@ canvas {
 
 .content.line2 {
 	padding-top: 10px;
-	transform: translate3d(-650%, 0, 0);
+	transform: translate3d(-750%, -2em, 0);
 	text-align: left;
 	color: rgba(255, 255, 255, 0.671);
 	text-decoration: underline;
@@ -86,7 +108,7 @@ canvas {
 	position: absolute;
 	padding-top: 10px;
 	top: -220px;
-	transform: translate3d(-680%, 0, 0);
+	transform: translate3d(-680%, -8em, 0);
 	text-align: left;
 	color: rgba(255, 255, 255, 0.671);
 
