@@ -1,4 +1,4 @@
-import React, { useState, Suspense, useMemo } from "react"
+import React from "react"
 import Cloud from "./cloud"
 import Light from "./lights"
 import { Canvas } from "react-three-fiber"
@@ -13,10 +13,6 @@ import TexturePlane from "./videoplane"
 
 const Painting = () => {
 	let nodesClouds = null
-	let keyboard = {}
-	const [keys, setKeys] = useState({})
-
-	// Function called in every frame
 
 	nodesClouds = new Array(65)
 		.fill(undefined)
@@ -31,33 +27,18 @@ const Painting = () => {
 			/>
 		))
 
-	const keyUp = (event) => {
-		console.log("HASJDKASDKLASJLKDA")
-		console.log(event.keyCode)
-		keyboard[event.keyCode] = false
-		setKeys(keyboard)
-	}
-
-	const keyDown = (event) => {
-		console.log(event.keyCode)
-		keyboard[event.keyCode] = true
-		setKeys(keyboard)
-	}
-
 	return (
 		<>
 			<Canvas
-				// onKeyDown={keyDown}
-				// onKeyUp={keyUp}
 				perspectivecamera='true'
-				camera={{ position: [5, 15, 50] }}
+				camera={{ position: [0, 0, 80] }}
 				onCreated={({ gl }) => {
 					gl.shadowMap.enabled = true
 					gl.shadowMap.type = THREE.PCFSoftShadowMap
 				}}
 			>
 				<Light />
-				<Controls keys={keys} />
+				<Controls />
 				{/* <Suspense fallback={<>Loading...</>}>
 					<group>{nodesClouds}</group>
 				</Suspense> */}

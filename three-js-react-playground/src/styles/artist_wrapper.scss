@@ -1,0 +1,24 @@
+.artist-wrapper {
+	position: absolute;
+	right: 350px;
+	width: auto;
+	height: auto;
+	background: rgba(228, 224, 224, 0.842);
+	display: flex;
+	align-items: center;
+	flex-flow: column;
+	.artist-title {
+		font-size: 35px;
+	}
+	.artist-description {
+		font-size: 25px;
+		margin: 10px;
+		margin-bottom: 15px;
+		width: 500px;
+	}
+
+	a {
+		font-size: 20px;
+		margin-bottom: 20px;
+	}
+}

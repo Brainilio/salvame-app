@@ -1,6 +1,9 @@
 @import "./landing.scss";
 @import "./video.scss";
 @import "./experience.scss";
+@import "./artist_wrapper.scss";
+@import "./marvin.scss";
+@import "./situations.scss";
 
 canvas {
 	width: 100%;
@@ -8,15 +11,6 @@ canvas {
 	margin: 0;
 	padding: 0;
 }
-
-// span {
-// 	z-index: -1;
-// 	font-size: 180px;
-// 	color: rgba(104, 104, 104, 0.5);
-// 	top: 0;
-// 	left: 0;
-// 	position: absolute;
-// }
 
 .content.line1 {
 	padding-top: 10px;

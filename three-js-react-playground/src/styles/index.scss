@@ -9,6 +9,24 @@ body {
 	font-family: "Courier New", Courier, monospace;
 }
 
+.next-button {
+	position: absolute;
+	right: 15px;
+	bottom: 15px;
+	color: rgba(255, 255, 255, 0.808);
+	border: 1px solid white;
+	background: none;
+	width: 100px;
+	height: 40px;
+	font-size: 25px;
+	transition: all 0.3s ease-in;
+
+	&:hover {
+		background: rgba(233, 233, 233, 0.884);
+		color: rgba(0, 0, 0, 0.863);
+	}
+}
+
 .footer {
 	color: rgba(226, 226, 226, 0.959);
 	mix-blend-mode: difference;

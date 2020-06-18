@@ -8,45 +8,53 @@
 	justify-content: center;
 	flex-flow: column;
 	align-items: center;
+	background-color: black;
+	color: rgb(255, 255, 255);
 
 	.landing-ad {
 		position: absolute;
 		top: 1em;
 		left: 1em;
-		width: 300px;
-		height: 180px;
-		border: 1px solid black;
+		width: 380px;
+		height: 250px;
+
+		border: 1px solid rgb(255, 255, 255);
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		flex-flow: column;
 
 		.landing-ad-header {
-			font-size: 25px;
+			font-size: 35px;
 			margin-bottom: 1em;
 		}
 		a {
-			color: rgb(55, 55, 104);
+			font-size: 20px;
+			color: rgb(255, 255, 255);
 		}
 	}
 	.landing-header {
-		font-size: 5em;
-		transform: translateY(-200px);
+		position: absolute;
+		font-size: 45px;
+		width: 1200px;
+		transform: translateY(-150px);
 	}
 
 	button {
+		transform: translateY(210px);
 		font-size: 18px;
 		width: 200px;
+		color: white;
 		height: 50px;
-		border: 1px solid rgb(0, 0, 0);
+		border: 1px solid rgb(255, 255, 255);
 		background: none;
 		box-shadow: 1px 1px 1px rgba(80, 80, 80, 0.616);
 		transition: all 0.3s ease;
 
 		&:hover {
 			border: none;
-			background: rgba(8, 8, 8, 0.747);
-			color: rgba(226, 226, 226, 0.959);
+			background: rgba(255, 255, 255, 0.747);
+			color: rgba(8, 8, 8, 0.959);
 		}
 	}
 }
