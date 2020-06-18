@@ -8,6 +8,7 @@ import Story from "./pages/story"
 import Experience from "./pages/experience"
 import Footer from "./components/footer"
 import Situations from "./pages/situations"
+import Resource from "./pages/resources"
 import Marvin from "./pages/marvin"
 // import SongContext from "./context/context"
 // import ReactHowler from "react-howler"
@@ -23,6 +24,7 @@ const App = () => {
 				<Route path='/situations' exact component={Situations} />
 				<Route path='/experience' exact component={Experience} />
 				<Route path='/painting' exact component={Painting} />
+				<Route path='/resource' exact component={Resource} />
 			</Switch>
 			<Footer />
 		</ErrorBoundary>

@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import TextExperience from "./content/textExperience"
+import { NavLink } from "react-router-dom"
 import Marvimg from "../assets/marv.png"
 
 const Marvin = () => {
@@ -36,6 +37,9 @@ const Marvin = () => {
 		<div className='marvin-wrapper'>
 			<div className='text-marvin'>{words[text]}</div>
 			<img src={Marvimg} />
+			<NavLink to='/situations' exact>
+				<button className='next-button'>Next</button>
+			</NavLink>
 		</div>
 	)
 }

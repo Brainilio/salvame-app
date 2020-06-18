@@ -1,10 +1,17 @@
 import React from "react"
+import { TextureLoader } from "three"
 
-const Plane = () => (
-	<mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -4, 40]} receiveShadow>
-		<planeBufferGeometry attach='geometry' args={[20, 80, 0]} />
-		<meshPhysicalMaterial attach='material' color='white' />
-	</mesh>
-)
+//args
+
+const Plane = (props) => {
+	const image = new TextureLoader().load(props.artpiece)
+
+	return (
+		<mesh rotation={props.rot} position={props.pos} receiveShadow>
+			<planeBufferGeometry attach='geometry' args={props.args} />
+			<meshPhysicalMaterial attach='material' map={image} />
+		</mesh>
+	)
+}
 
 export default Plane

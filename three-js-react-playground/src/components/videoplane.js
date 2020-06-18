@@ -5,8 +5,8 @@ import Robert from "../assets/robert_varga.jpg"
 import Test from "../assets/test.mp4"
 import { HTML } from "drei"
 
-const TexturePlane = () => {
-	const image = new TextureLoader().load(Robert)
+const TexturePlane = (props) => {
+	const image = new TextureLoader().load(props.artpiece)
 	const vid = new VideoTexture(Test)
 
 	console.log(vid)
@@ -21,25 +21,17 @@ const TexturePlane = () => {
 
 	return (
 		<>
-			<mesh rotation={[0, Math.PI / 2, 0]} position={[-10, 7, 60]} castShadow>
-				<planeBufferGeometry attach='geometry' args={[35, 20]} />
+			<mesh rotation={props.rot} position={props.pos} castShadow>
+				<planeBufferGeometry attach='geometry' args={props.args} />
 				<meshLambertMaterial attach='material' map={image} />
 
-				<HTML>
+				<HTML scaleFactor={50}>
 					<div className='artist-wrapper'>
 						<span className='artist-title'>
-							<strong>Robert Vargas</strong>
+							<strong>{props.artistname}</strong>
 						</span>
-						<p className='artist-description'>
-							"#OurLadyOfDTLA I painted her as my dedication to #LosAngeles that
-							honors this city’s unrelenting resilience. She is a microcosm of
-							the world, transcending any one space or place. We will persevere
-							🌎 #StayStrong #StayHealthy 💛🙏🏼💪🏼"
-						</p>
-						<a
-							target='_blank'
-							href='https://www.facebook.com/robert.vargas.140'
-						>
+						<p className='artist-description'>{props.artdescription}</p>
+						<a target='_blank' href={props.hreflink}>
 							See more.
 						</a>
 					</div>

@@ -6,17 +6,17 @@ const Cloud = (props) => {
 	let cloudRef = useRef()
 	const cloud = useLoader(ImageLoader, "assets/cloud/smoke.png")
 	useFrame(() => {
-		// cloudRef.current.rotation.z -= 0.001
-		// cloudRef.current.position.x -= Math.random() * 0.05
-		// if (cloudRef.current.position.x < -20) {
-		// 	cloudRef.current.position.x = Math.random() * 10 - 8
-		// 	cloudRef.current.position.z = Math.random() * 30 - 3
-		// }
+		cloudRef.current.rotation.z -= 0.001
+		cloudRef.current.position.x -= Math.random() * 0.05
+		if (cloudRef.current.position.x < -20) {
+			cloudRef.current.position.x = Math.random() * 10 - 8
+			cloudRef.current.position.z = Math.random() * 30 - 3
+		}
 	})
 
 	return (
 		<mesh ref={cloudRef} position={props.position.map((pos) => pos)}>
-			<planeBufferGeometry attach='geometry' args={[20, 20, 20]} />
+			<planeBufferGeometry attach='geometry' args={[500, 500]} />
 			<meshLambertMaterial attach='material' transparent>
 				<texture
 					attach='map'
