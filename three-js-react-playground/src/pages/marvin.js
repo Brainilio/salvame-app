@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react"
-import TextExperience from "./content/textExperience"
+import TextMarvin from "./content/textMarvin"
 import { NavLink } from "react-router-dom"
 import Marvimg from "../assets/marv.png"
 import { gsap } from "gsap"
@@ -40,12 +40,14 @@ const Marvin = () => {
 
 	//show words
 	wordToShow.map((word, index) =>
-		words.push(<TextExperience key={index} name={word} click={wordShift} />)
+		words.push(<TextMarvin key={index} name={word} click={wordShift} />)
 	)
 
 	return (
 		<div className='marvin-wrapper'>
-			<div className='text-marvin'>{words[text]}</div>
+			<div className='text-marvin' onClick={wordShift}>
+				{words[text]}
+			</div>
 			<img ref={(el) => (marvImage = el)} src={Marvimg} />
 			<NavLink to='/situations' exact>
 				<button className='next-button'>Next</button>
