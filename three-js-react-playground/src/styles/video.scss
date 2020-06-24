@@ -43,14 +43,33 @@
 		color: rgba(255, 255, 255, 0.658);
 		mix-blend-mode: darken;
 		animation: comeview 25s;
+	}
+}
 
-		@keyframes comeview {
-			from {
-				opacity: 0;
-			}
-			to {
-				opacity: 1;
-			}
-		}
+.landing-button {
+	transform: translateY(300px);
+	font-size: 18px;
+	width: 200px;
+	color: white;
+	height: 50px;
+	border: 1px solid rgb(255, 255, 255);
+	background: none;
+	box-shadow: 1px 1px 1px rgba(80, 80, 80, 0.616);
+	transition: all 0.3s ease;
+	animation: comeview 30s;
+
+	&:hover {
+		border: none;
+		background: rgba(255, 255, 255, 0.747);
+		color: rgba(8, 8, 8, 0.959);
+	}
+}
+
+@keyframes comeview {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
 	}
 }

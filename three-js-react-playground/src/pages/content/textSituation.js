@@ -4,7 +4,7 @@ import { Fade } from "react-reveal"
 const ShowText = (props) => {
 	return (
 		<>
-			<Fade>
+			<Fade duration={5000}>
 				<div className='sit-text'>
 					<span>{props.title}</span>
 					<p>{props.paragraph}</p>

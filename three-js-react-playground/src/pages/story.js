@@ -15,8 +15,8 @@ const Story = (props) => {
 			>
 				<source type='video/mp4' data-reactid='.0.1.0.0.0' src={Vid} />
 			</video>
-			<NavLink to='/marvin' exact>
-				<button className='next-button'>Next</button>
+			<NavLink to='/marvin'>
+				<button className='landing-button'>Start Experience</button>
 			</NavLink>
 		</div>
 	)

@@ -8,7 +8,7 @@ const Experience = () => {
 		"Boyle Heights, Los Angeles",
 		"You've fought for a long time",
 		"You won many battles",
-		"But the war is not over yet.",
+		"And we have a long way to go",
 		"Boyle Heights.",
 		"Don't let your voice",
 		"Your community",
@@ -40,13 +40,17 @@ const Experience = () => {
 
 	return (
 		<>
-			<Fade bottom duration={3000}>
-				<div className='experience-wrapper'>
-					<span className='experience-text'>{words[text]}</span>
-				</div>
-			</Fade>
+			<div onClick={nextText} className='experience-wrapper'>
+				<span className='experience-text'>{words[text]}</span>
+			</div>
 
-			<NavLink to='/painting' exact>
+			<NavLink
+				to={{
+					pathname: `/painting`,
+					state: true,
+				}}
+				exact
+			>
 				<button className='next-button'>Next</button>
 			</NavLink>
 		</>

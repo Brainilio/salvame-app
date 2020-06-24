@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React, { useState, useRef, useEffect } from "react"
 import TextExperience from "./content/textExperience"
 import { NavLink } from "react-router-dom"
 import Marvimg from "../assets/marv.png"
+import { gsap } from "gsap"
 
 const Marvin = () => {
 	const wordToShow = [
@@ -12,6 +13,15 @@ const Marvin = () => {
 	]
 
 	const [text, setText] = useState(0)
+
+	let marvImage = useRef(null)
+
+	useEffect(() => {
+		gsap.from(marvImage, 1.3, { opacity: 0, y: 1800 })
+		return () => {
+			gsap.to(marvImage, 0, { opacity: 1 })
+		}
+	}, marvImage)
 
 	// the last index
 	let j = wordToShow.length - 1
@@ -36,7 +46,7 @@ const Marvin = () => {
 	return (
 		<div className='marvin-wrapper'>
 			<div className='text-marvin'>{words[text]}</div>
-			<img src={Marvimg} />
+			<img ref={(el) => (marvImage = el)} src={Marvimg} />
 			<NavLink to='/situations' exact>
 				<button className='next-button'>Next</button>
 			</NavLink>
