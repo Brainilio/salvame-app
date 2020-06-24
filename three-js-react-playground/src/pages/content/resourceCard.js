@@ -1,8 +1,15 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
+import { gsap } from "gsap"
 
 const Card = (props) => {
+	let card = useRef(null)
+
+	useEffect(() => {
+		gsap.from(card, 1.2, { opacity: 0, y: 500 })
+	})
+
 	return (
-		<div className='resource-card'>
+		<div ref={(el) => (card = el)} className='resource-card'>
 			<img src={props.imgsource} />
 			<div className='resource-title'>
 				<h1>{props.title}</h1>
