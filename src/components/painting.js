@@ -67,7 +67,7 @@ const Painting = () => {
 					</div>
 					<Canvas
 						pixelRatio={1}
-						camera={{ position: [0, 10, 50] }}
+						camera={{ position: [0, 10, 650] }}
 						onCreated={({ gl }) => {
 							gl.shadowMap.enabled = true
 							gl.shadowMap.type = THREE.PCFSoftShadowMap
