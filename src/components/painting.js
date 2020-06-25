@@ -66,6 +66,7 @@ const Painting = () => {
 						<span className='add-did you know'>Did you know..?</span>
 					</div>
 					<Canvas
+						pixelRatio={1}
 						camera={{ position: [0, 10, 50] }}
 						onCreated={({ gl }) => {
 							gl.shadowMap.enabled = true
