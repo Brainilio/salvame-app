@@ -1,22 +1,30 @@
 import React, { useRef } from "react"
-import { useLoader, useFrame } from "react-three-fiber"
+import { useLoader, useFrame, useThree } from "react-three-fiber"
 import { ImageLoader } from "three"
 
 const Cloud = (props) => {
 	let cloudRef = useRef()
+	const { camera } = useThree();
+	console.log(cloudRef.current)
+
 	const cloud = useLoader(ImageLoader, "assets/cloud/smoke.png")
 	useFrame(() => {
-		cloudRef.current.rotation.z -= 0.001
+
+		if (camera.position.z > 70) {
+
+		}
+
 		cloudRef.current.position.x -= Math.random() * 0.05
-		if (cloudRef.current.position.x < -20) {
-			cloudRef.current.position.x = Math.random() * 10 - 8
-			cloudRef.current.position.z = Math.random() * 30 - 3
+		cloudRef.current.rotation.z -= Math.random() * 0.0001
+		if (cloudRef.current.position.x < -40) {
+			cloudRef.current.position.x = Math.random() * 80
+			cloudRef.current.position.z = Math.random() * 30
 		}
 	})
 
 	return (
 		<mesh ref={cloudRef} position={props.position.map((pos) => pos)}>
-			<planeBufferGeometry attach='geometry' args={[500, 500]} />
+			<planeBufferGeometry attach='geometry' args={[150, 90]} />
 			<meshLambertMaterial attach='material' transparent>
 				<texture
 					attach='map'

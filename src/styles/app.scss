@@ -12,10 +12,23 @@ canvas {
 	height: 100vh;
 	margin: 0;
 	padding: 0;
+	animation: comeIn 20s linear;
+}
+
+@keyframes comeIn { 
+	0% { 
+		filter: grayscale(100%);
+		opacity: 0; 
+	}
+	100% { 
+		filter: grayscale(0%);
+		opacity: 1
+	}
 }
 
 .action-button {
 	position: absolute;
+	z-index: 99999999;
 	top: 80%;
 	left: 50%;
 	transform: translate(-50%, -50%);
