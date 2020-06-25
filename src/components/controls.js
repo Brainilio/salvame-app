@@ -1,4 +1,4 @@
-import React, { useRef } from "react"
+import React, { useRef, useState } from "react"
 import { extend, useThree, useFrame } from "react-three-fiber"
 import { PointerLockControls } from "three/examples/jsm/controls/PointerLockControls"
 
@@ -7,6 +7,7 @@ extend({ PointerLockControls })
 const Controls = (props) => {
 	const orbitRef = useRef()
 	const { camera, gl } = useThree()
+	const [shouldBlock, setShouldBlock] = useState(false)
 	let keyboard = {}
 
 	const keyDown = (event) => {
@@ -24,16 +25,22 @@ const Controls = (props) => {
 		// console.log(camera.position.z) 275
 
 		// if (camera.position.z > 70) {
-		// 	orbitRef.current.moveForward(0.15)
+		// 	orbitRef.current.moveForward(0.25)
 		// }
 
-		// if (
-		// 	camera.position.x < -10 ||
-		// 	camera.position.x > 10 ||
-		// 	camera.position.z < 5 ||
-		// 	camera.position.z > 82
-		// ) {
-		// 	camera.position.set(0, 0, 40)
+		// if (camera.position.z < 70) {
+		// 	setShouldBlock(true)
+		// }
+
+		// if (shouldBlock) {
+		// 	if (
+		// 		camera.position.x < -40 ||
+		// 		camera.position.x > 40 ||
+		// 		camera.position.z < 5 ||
+		// 		camera.position.z > 82
+		// 	) {
+		// 		camera.position.set(0, 10, 70)
+		// 	}
 		// }
 
 		document.body.addEventListener("keydown", (e) => {
@@ -48,7 +55,6 @@ const Controls = (props) => {
 		})
 
 		if (orbitRef.current.isLocked == true) {
-			console.log("i'm locked")
 			if (keyboard[87]) {
 				// w
 				orbitRef.current.moveForward(0.25)

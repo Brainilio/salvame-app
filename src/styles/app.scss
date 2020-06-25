@@ -25,6 +25,13 @@ canvas {
 	border: none;
 	background: rgba(209, 208, 208, 0.795);
 	font-family: "Courier New", Courier, monospace;
+	transition: color 0.8s ease, background 0.8s ease;
+
+	&:hover {
+		color: white;
+		background: black;
+		border: 1px solid white;
+	}
 }
 .content.title {
 	text-align: center;
