@@ -1,0 +1,8 @@
+import React from "react"
+import "./Card.scss"
+
+const Card = (props) => {
+	return <div></div>
+}
+
+export default Card
