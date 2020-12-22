@@ -2,3 +2,11 @@
 @import "./utilStyles/breakPoints.scss";
 @import "./utilStyles/colors.scss";
 @import "./utilStyles/fontSizes.scss";
+
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	background-color: black;
+	font-family: "Courier New", Courier, monospace;
+}
