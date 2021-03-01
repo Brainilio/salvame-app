@@ -21,7 +21,7 @@
     "react-transition-group": "^4.4.1",
     "react-typewriter": "^0.4.1",
     "redux": "^4.0.5",
-    "three": "^0.117.1",
+    "three": "^0.125.0",
     "three-gltf-loader": "^1.111.0",
     "video-react": "^0.14.1"
   },
